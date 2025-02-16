@@ -23,22 +23,6 @@ def run():
         rpc_schema = json.load(file)
     methods = rpc_schema.get("methods", [])
 
-    # ############ Just for test
-    # parser = argparse.ArgumentParser()
-    # bt.logging.add_args(parser)
-    # method = random.choice(methods)
-    # try:
-    #     res = send_request(method)
-    #     bt.logging.debug(f"result: {res}")
-    #     res_schema = method.get("result")
-    #     validate(instance=res, schema=res_schema)
-    #     bt.logging.info(f"✅ Passed")
-    # except ValidationError as e:
-    #     bt.logging.info(f"❌ Not Expected Result: {e.message}")
-    # except Exception as e:
-    #     bt.logging.info(f"❌ Request Failed: {e}")
-    # ############
-
     def set_weight(endpoint: Endpoint, uid: Uid) -> tuple[Uid, WorkerWeight]:
         bt.logging.debug(f"endpoint: {endpoint}, uid: {uid}")
         method = random.choice(methods)
@@ -61,12 +45,12 @@ def run():
         sleep(tempo_sec)
 
 def run_debug():
+    parser = argparse.ArgumentParser()
+    bt.logging.add_args(parser)
+
     with open("api.json", "r") as file:
         rpc_schema = json.load(file)
     methods = rpc_schema.get("methods", [])
-
-    parser = argparse.ArgumentParser()
-    bt.logging.add_args(parser)
     method = random.choice(methods)
     try:
         res = send_request(method)

@@ -6,7 +6,7 @@ docker run \
     --log-opt       max-size="$LOG_MAX_SIZE"    \
     --log-opt       max-file="$LOG_MAX_FILE"    \
     -d \
-    test-rpc-subnet \
+    "ghcr.io/jungoai/rpc-subnet:$RPC_SUBNET_VERSION" \
         rpc-worker \
             --ip            "$RPC_SUBNET_WORKER_IP" \
             --port          "$RPC_SUBNET_WORKER_PORT" \
@@ -14,4 +14,4 @@ docker run \
             --wallet.name   "$RPC_SUBNET_WORKER_COLDKEY" \
             --wallet.hotkey "$RPC_SUBNET_WORKER_HOTKEY" \
             --chain         "$RPC_SUBNET_CHAIN" \
-            --logging.info
+            --logging.debug

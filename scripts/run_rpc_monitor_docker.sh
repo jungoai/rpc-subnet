@@ -6,11 +6,12 @@ docker run \
     --log-opt       max-size="$LOG_MAX_SIZE"    \
     --log-opt       max-file="$LOG_MAX_FILE"    \
     -d \
-    test-rpc-subnet \
+    "ghcr.io/jungoai/rpc-subnet:$RPC_SUBNET_VERSION" \
         rpc-monitor \
             --wallet.name   "$RPC_SUBNET_MONITOR_COLDKEY" \
             --wallet.hotkey "$RPC_SUBNET_MONITOR_HOTKEY" \
             --netuid        "$RPC_SUBNET_NETUID" \
             --chain         "$RPC_SUBNET_CHAIN" \
-            --fast_blocks \
-            --logging.info
+            --logging.debug
+
+            # --fast_blocks \
