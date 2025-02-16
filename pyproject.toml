@@ -1,0 +1,27 @@
+[project]
+name            = "rpc-subnet"
+version         = "0.1.0"
+readme          = "README.md"
+requires-python = ">=3.10"
+dependencies    = [
+    "jungo-sdk @ git+https://github.com/jungoai/jungo-sdk@v0.1.0",
+    "jsonschema>=4.23.0",
+]
+
+[project.scripts]
+"rpc-worker"   = "rpc_subnet.worker:main"
+"rpc-monitor"  = "rpc_subnet.monitor:main"
+
+[build-system]
+requires = ["hatchling", "wheel"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["rpc_subnet"]

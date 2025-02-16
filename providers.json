@@ -1,0 +1,12 @@
+{
+  "urls": [
+    "https://eth-mainnet.public.blastapi.io",
+    "https://eth.llamarpc.com",
+    "https://rpc.ankr.com/eth",
+    "https://rpc.flashbots.net/",
+    "https://cloudflare-eth.com/",
+    "https://ethereum.publicnode.com",
+    "https://nodes.mewapi.io/rpc/eth",
+    "https://eth-mainnet.nodereal.io/v1/1659dfb40aa24bbb8153a677b98064d7"
+  ]
+}
