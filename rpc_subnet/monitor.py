@@ -27,7 +27,7 @@ def run():
         bt.logging.debug(f"endpoint: {endpoint}, uid: {uid}")
         method = random.choice(methods)
         try:
-            res = send_request(method)
+            res = send_request(f"http://{endpoint.ip_str()}:{endpoint.port}/jsonrpc", method)
             bt.logging.debug(f"result: {res}")
             res_schema = method.get("result")
             validate(instance=res, schema=res_schema)
@@ -53,7 +53,7 @@ def run_debug():
     methods = rpc_schema.get("methods", [])
     method = random.choice(methods)
     try:
-        res = send_request(method)
+        res = send_request("http://localhost:4000/jsonrpc", method)
         bt.logging.debug(f"result: {res}")
         res_schema = method.get("result")
         validate(instance=res, schema=res_schema)
@@ -63,14 +63,13 @@ def run_debug():
     except Exception as e:
         bt.logging.info(f"❌ Request Failed: {e}")
 
-def send_request(method):
+def send_request(url: str, method):
     method_name = method["name"]
     bt.logging.debug(f"method_name: {method_name}")
 
     args = lmap(lambda x: x.get("value"), method.get("examples", [])[0].get("params"))
     bt.logging.debug(f"args: {args}")
 
-    url = "http://localhost:4000/jsonrpc"
     headers = {'content-type': 'application/json'}
     id = random.randint(1, 100)
     payload = {
