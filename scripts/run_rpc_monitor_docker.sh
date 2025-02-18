@@ -3,8 +3,8 @@ docker run \
     --network       host \
     -v              "$RPC_SUBNET_WALLET_PATH:/root/.jungoai/" \
     --log-driver    json-file                   \
-    --log-opt       max-size="$LOG_MAX_SIZE"    \
-    --log-opt       max-file="$LOG_MAX_FILE"    \
+    --log-opt       max-size="$RPC_SUBNET_LOG_MAX_SIZE"    \
+    --log-opt       max-file="$RPC_SUBNET_LOG_MAX_FILE"    \
     -d \
     "ghcr.io/jungoai/rpc-subnet:$RPC_SUBNET_VERSION" \
         rpc-monitor \
