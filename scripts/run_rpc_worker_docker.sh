@@ -1,3 +1,5 @@
+docker pull "ghcr.io/jungoai/rpc-subnet:$RPC_SUBNET_VERSION"
+
 docker run \
     --name          "rpc-worker" \
     --network       host \
