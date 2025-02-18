@@ -1,3 +1,5 @@
+#!/bin/bash
+
 rpc-worker \
     --ip            "$RPC_SUBNET_WORKER_IP" \
     --port          "$RPC_SUBNET_WORKER_PORT" \

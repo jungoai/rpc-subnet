@@ -1,3 +1,5 @@
+#!/bin/bash
+
 rpc-monitor \
     --wallet.name   "$RPC_SUBNET_MONITOR_COLDKEY" \
     --wallet.hotkey "$RPC_SUBNET_MONITOR_HOTKEY" \
