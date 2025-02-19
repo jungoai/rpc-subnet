@@ -1,5 +1,5 @@
 {
-  "urls": [
+  "providers": [
     "https://eth-mainnet.public.blastapi.io",
     "https://eth.llamarpc.com",
     "https://rpc.ankr.com/eth",
